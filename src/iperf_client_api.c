@@ -36,6 +36,7 @@
 #include <sys/select.h>
 #include <sys/uio.h>
 #include <arpa/inet.h>
+#include <time.h>
 
 #include "iperf.h"
 #include "iperf_api.h"
@@ -67,9 +68,8 @@ iperf_create_streams(struct iperf_test *test, int sender)
 
     int orig_bind_port = test->bind_port;
     for (i = 0; i < test->num_streams; ++i) {
-
-#add random delay here
-
+	int r = rand() % 11
+	sleep(r*1000)
         test->bind_port = orig_bind_port;
 	if (orig_bind_port) {
 	    test->bind_port += i;
