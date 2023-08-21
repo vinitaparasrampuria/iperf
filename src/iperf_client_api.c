@@ -69,7 +69,9 @@ iperf_create_streams(struct iperf_test *test, int sender)
     int orig_bind_port = test->bind_port;
     for (i = 0; i < test->num_streams; ++i) {
 	int r = rand() % 11;
-	sleep(r*1000);
+	printf("%d", r);
+	sleep(r);
+	
         test->bind_port = orig_bind_port;
 	if (orig_bind_port) {
 	    test->bind_port += i;
