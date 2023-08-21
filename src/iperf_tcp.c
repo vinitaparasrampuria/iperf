@@ -85,6 +85,10 @@ iperf_tcp_send(struct iperf_stream *sp)
 {
     int r;
 
+	int delay = rand() % 11;
+	printf("%d dealy inside tcp", delay);
+	sleep(delay);
+
     if (!sp->pending_size)
 	sp->pending_size = sp->settings->blksize;
 
