@@ -1443,7 +1443,7 @@ iperf_parse_arguments(struct iperf_test *test, int argc, char **argv)
                 break;
             case 'O':
                 test->omit = atoi(optarg);
-                if (test->omit < 0 || test->omit > 60) {
+                if (test->omit < 0 || test->omit > 300) {
                     i_errno = IEOMIT;
                     return -1;
                 }
