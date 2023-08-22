@@ -627,11 +627,16 @@ iperf_run_client(struct iperf_test * test)
 
 	    /* Is this our first time really running? */
 	    if (startup) {
+		    
 	        startup = 0;
 
 		// Set non-blocking for non-UDP tests
 		if (test->protocol->id != Pudp) {
 		    SLIST_FOREACH(sp, &test->streams, streams) {
+			int delay = rand() % 11;
+			printf("%d inside non-blocking", delay);
+			sleep(delay);
+			    
 			setnonblocking(sp->socket, 1);
 		    }
 		}
