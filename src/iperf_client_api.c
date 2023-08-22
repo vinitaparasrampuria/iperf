@@ -382,9 +382,6 @@ iperf_connect(struct iperf_test *test)
     /* Create and connect the control channel */
     if (test->ctrl_sck < 0)
     {
-	    int delay = rand() % 11;
-	printf("%d", delay);
-	sleep(delay);
 	// Create the control channel using an ephemeral port
 	test->ctrl_sck = netdial(test->settings->domain, Ptcp, test->bind_address, test->bind_dev, 0, test->server_hostname, test->server_port, test->settings->connect_timeout);
     }
@@ -633,9 +630,6 @@ iperf_run_client(struct iperf_test * test)
 		// Set non-blocking for non-UDP tests
 		if (test->protocol->id != Pudp) {
 		    SLIST_FOREACH(sp, &test->streams, streams) {
-			int delay = rand() % 11;
-			printf("%d inside non-blocking", delay);
-			sleep(delay);
 			    
 			setnonblocking(sp->socket, 1);
 		    }
