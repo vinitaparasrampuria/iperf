@@ -2890,7 +2890,7 @@ iperf_defaults(struct iperf_test *testp)
     tcp->connect = iperf_tcp_connect;
 	int delay = rand() % 11;
 	printf("%d, inside iperf_api.c", delay);
-	sleep(delay)
+	sleep(delay);
     tcp->send = iperf_tcp_send;
     tcp->recv = iperf_tcp_recv;
     tcp->init = NULL;
